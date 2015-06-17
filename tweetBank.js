@@ -35,6 +35,8 @@ var getFakeTweet = function() {
 module.exports.add("Jovia", "Hello World");
 module.exports.add("Zoe", "I am chilly");
 module.exports.add("Nimit", "I like hazelnuts");
+module.exports.add("Jovia", "Hello World Again");
+
 
 for(var i=0; i<10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );

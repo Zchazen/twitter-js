@@ -12,15 +12,19 @@
       100 followers
     </div>
     <div class="col-md-9">
-    
+    	<h2> All Tweets </h2>
       <!-- display tweets here -->
-      {% for tweet in tweets %}
-        <li>{{tweet.text}}</li>
-      {% endfor %}
+      		<h3> {{title}} </h3>
+    {% for tweet in tweets %}
+  <li><a href="/users/{{tweet.name}}">{{tweet.name}}</a> - {{ tweet.text }}
+  </li>
+	{% endfor %}
+	{% for listitem in list %}
+      		 <li> {{listitem.text}} </li>
+    {% endfor %}
       
     </div>
-  </div>
-    
+  </div>  
 {% endblock %}
 
 <!-- <h1>{{ title }}</h1>
@@ -30,3 +34,10 @@
   <li>{{ person.name }}</li>
 {% endfor %}
 </ul> -->
+<!--{% for tweet in tweets %}
+        <li class="username"> {{tweet.name}} </li>
+         <li> {{tweet.text}}</li>
+      {% endfor %}-->
+<!--{% for listitem in list %}
+      		 <li> {{listitem.text}} </li>
+      	{% endfor %}-->
