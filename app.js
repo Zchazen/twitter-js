@@ -1,6 +1,7 @@
 var express = require( 'express' );
 var morgan = require('morgan');
 var swig = require('swig');
+var bodyParser = require('body-parser');
 var app = express();
 app.use(morgan('dev'));
 
@@ -9,6 +10,12 @@ app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 swig.setDefaults({ cache: false });
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 var routes = require('./routes/');
 app.use('/', routes);
