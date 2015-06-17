@@ -8,14 +8,11 @@ app.use(morgan('dev'));
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
-
 swig.setDefaults({ cache: false });
 
-app.get('/', function (req, res) {
-  //res.send('hello, world and friends!')
-	var people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
-	res.render( 'index', {title: 'Hall of Fame', people: people} );
-})
+var routes = require('./routes/');
+app.use('/', routes);
+
 
 var server = app.listen(3000, function () {
 
@@ -26,3 +23,9 @@ var server = app.listen(3000, function () {
 
 });
 
+
+// app.get('/', function (req, res) {
+//   //res.send('hello, world and friends!')
+// 	var people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
+// 	res.render( 'index', {title: 'Hall of Fame', people: people} );
+// })
